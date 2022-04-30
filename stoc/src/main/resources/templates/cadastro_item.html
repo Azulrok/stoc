@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<title>Criação de conta</title>
+
+</head>
+<body>
+
+<center><h1><p class="p2">Cadastro do Item:</h1></center>
+
+<style>
+
+body {
+  background-color: black;
+}
+
+.p2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+
+	color: cadetblue;
+}
+div{
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=quantidade], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: Gray;
+  color: white;
+  padding: 10px 10px;
+  margin: 8px 0;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #A9A9A9;
+}
+
+div {
+  border-radius: 30px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 30%;
+}
+
+</style>
+
+<div>
+<form action="/action_page.php">
+
+<!-- Comentar o que cada um faz depois -->
+
+<p class="p2"><label for="pname">Nome do Item:</label>
+<input type="text" id="fname" name="item" placeholder="Insira o nome do item">
+
+<h3>Descrição do Item:</h3>
+<input type="radio" id="Perecível" name="drone" value="Perecível"
+checked>
+<label for="Perecível">Perecível</label>
+
+<input type="radio" id="Não percível" name="drone" value="Não percível">
+<label for="Não percível">Não percível</label>
+<br>
+<br>
+<label for="date">Validade:</label>
+<input id="date" type="date">
+<br>
+<br>
+<textarea rows="4" cols="33" maxlength="33">Digite aqui...</textarea>
+<br>
+
+        <!-- NÃO ESQUECER DESSE DETALHE MENOR
+        Limitação de caracteres inputar apenas números
+        Limitação de números 
+        Abaixo: -->
+
+<label for="quantidade" >Quantidade do Item:</label>
+<input type="quantidade" id="quantidade" name="quantidade"
+placeholder="Insira a quantidade">
+<input button type="submit" value="Enviar">
+
+</div>
+</form>
+</body>
+</html>
