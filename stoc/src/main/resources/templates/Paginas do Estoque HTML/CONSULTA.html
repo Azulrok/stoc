@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>-STOC- Consultar</title>
+    <style>
+        h1{color: darkblue}
+  input, button {
+    padding: .5em;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-top: 1em;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #bbb;
+    padding: 5px;
+    text-align: left;
+  }
+  </style>
+</head>
+<body bgcolor="lightblue">
+    <h1>STOC</h1>
+    <input type="text" id="codigo" placeholder="Insira o codigo do item">
+    <input type="text" id="precoCompra" placeholder="Local">
+    <input type="text" id="precoVenda" placeholder="Descrição">
+    <button id="btn-adicionar">
+        Adcionar
+    </button>
+    <button id="btn-alterar">
+        Alterar
+    </button>
+       <div id="pesquisa" hidden> 
+            <input type="text" placeholder="pesquise o codigo" id="campoPesquisa">
+       </div>
+     <table id="dados" hidden>
+            <thead>
+            <tr>
+                <th>Codigo do Produto</th>
+                <th>preço compra</th>
+                <th>preço Venda</th>
+                <th>lucro</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+      </table>
+
+    <script>
+        const IdItem       = document.querySelector('#IdItem')
+        const Quantidade  = document.querySelector('#Quantidade')
+        const CodDescricao   = document.querySelector('#CodDescricao')
+        codigo.focus()
+
+        btn.addEventListener('click', e=>{
+            let compra = +precoCompra.value
+            let venda  = +precoVenda.value 
+            let valorFinal = 0
+                if (compra && venda && codigo){
+                    valorFinal = venda - compra
+
+
+
+                    dados.removeAttribute('hidden')
+
+                    tbody.innerHTML += `<tr>
+                                            <td class="codproduto">${codigo.value}</td> 
+                                            <td>${compra}</td> 
+                                            <td>${venda}</td>
+                                            <td>${valorFinal}</td>
+                                        </tr>`
+
+                    codigo.value = ''
+                    precoCompra.value = ''
+                    precoVenda.value = ''
+                    codigo.focus()   
+                                                   }
+
+
+        })
+
+        btnAlterar.addEventListener('click', e=>{
+            /*
+            if(tbody){
+                pesquisa.removeAttribute('hidden')
+                let search = campopesquisa.value 
+
+            }
+            */
+            pesquisa.removeAttribute('hidden')
+
+            for( let c of document.querySelectorAll(".codproduto") )
+            {
+                console.log(c.innerHTML)
+            }
+        })
+
+    </script>
+</body>
+</html>
