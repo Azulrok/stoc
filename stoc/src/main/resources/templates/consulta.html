@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<style type="text/css">
+    body {background-color: lightgray;
+    }
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+
+  .navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+  }
+
+  .navbar a:hover {
+      background: #ddd;
+      color: black;
+  }
+
+  .main {
+      padding: 16px;
+      margin-top: 30px;
+      height: 1500px; /* Used in this example to enable scrolling */    
+  }
+  h1 {
+    color: blue;
+}
+</style>
+<body>
+    <div class="navbar">
+      <a href="home.html">Home</a>
+  </div>
+
+  <hr>
+  <!--caixa de texto para consulta--> 
+  <div class="form-group input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+    <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
+</div>
+<table id="tabela" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Id</th>
+            <th>Local</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>71000100</th>
+            <td>001</td>
+            <td>Prateleira 1</td>
+            <td>01/05/2022</td>
+        </tr>
+        
+        <tr>
+            <th>71000101</th>
+            <td>002</td>
+            <td>Prateleira 1</td>
+            <td>01/05/2022</td>
+        </tr>
+
+        <tr>
+            <th>71000102</th>
+            <td>003</td>
+            <td>Prateleira 1</td>
+            <td>01/05/2022</td>
+        </tr>
+
+        <tr>
+            <th>71000103</th>
+            <td>004</td>
+            <td>Prateleira 1</td>
+            <td>01/05/2022</td>
+        </tr>
+
+        <tr>
+            <th>71000104</th>
+            <td>005</td>
+            <td>Prateleira 1</td>
+            <td>01/05/2022</td>
+        </tr>  
+
+        <tr>
+            <th>71000105</th>
+            <td>006</td>
+            <td>Prateleira 1</td>
+            <td>01/05/2022</td>
+        </tr>                               
+    </tbody>
+</table>
+
+<script>
+    $('input#txt_consulta').quicksearch('table#tabela tbody tr');
+</script>
+<!--caixa de consulta termina aqui(css e jquery boostrap)-->
+</body>
+</html>
