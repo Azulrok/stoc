@@ -1,36 +1,37 @@
 package br.com.stoc.controller;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import br.com.stoc.repository.FuncionarioRepository;
+
+
+import br.com.stoc.repository.MovimentacaoRepository;
 
 @Controller
-public class FuncionarioController {
+public class MovimentacaoController {
 	
 	//cria uma instãncia do nosso repositório
 	@Autowired
-	private FuncionarioRepository funcionarioRepository;
+	private MovimentacaoRepository movimentacaoRepository;
 	
-	@GetMapping({"/home"}) //é o nome que eu quiser colocar
+	@GetMapping({"/consulta"}) //é o nome que eu quiser colocar
     public String home(ModelMap model) { 			
     	   
 		
 	
-		 return "home.html"; //é o nome do arquivo real	
+		 return "consulta.html"; //é o nome do arquivo real	
     	    	
     }
 	
-	@GetMapping({"/funcionario/funcionario"}) //é o nome que eu quiser colocar
+	@GetMapping({"/consulta/consulta"}) //é o nome que eu quiser colocar
     public String listarfuncionario(ModelMap model) { 			
     	   
 		 //o findAll lista todos atores 
-		 model.addAttribute("funcionario",funcionarioRepository.findAll());
-		 return "funcionario/funcionario"; //é o nome do arquivo real	
+		 model.addAttribute("consulta",movimentacaoRepository.findAll());
+		 return "consulta/consulta"; //é o nome do arquivo real	
     	    	
     }
 

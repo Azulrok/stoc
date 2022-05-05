@@ -13,7 +13,7 @@ import javax.persistence.Table;
 	
 	
 	@Entity
-	@Table(name = "item",schema = "stoc")
+	@Table(name = "funcionario",schema = "stoc")
 	public class FuncionarioModel implements Serializable{
 
 		private static final long serialVersionUID = 1L;
