@@ -28,6 +28,11 @@ import javax.persistence.Table;
 		private String TipoFuncionario;
 		@Column(name = "email_funcionario")
 		private String EmailFuncionario;
+		@Column(name = "senha_funcionario")
+		private String SenhaFuncionario;
+		
+		
+		
 		public Integer getIdFuncionario() 
 		
 		
@@ -60,6 +65,12 @@ import javax.persistence.Table;
 		}
 		public void setEmail_Funcionario(String email_Funcionario) {
 			EmailFuncionario = email_Funcionario;
+		}
+		public String getSenhaFuncionario() {
+			return SenhaFuncionario;
+		}
+		public void setSenhaFuncionario(String senhaFuncionario) {
+			SenhaFuncionario = senhaFuncionario;
 		}
 
 		

@@ -21,12 +21,12 @@ public class FuncionarioController {
     	   
 		
 	
-		 return "home.html"; //é o nome do arquivo real	
+		 return "login.html"; //é o nome do arquivo real	
     	    	
     }
 
-@GetMapping({"/funcionario/funcionario"}) //é o nome que eu quiser colocar
-public String listarfuncionario(ModelMap model) { 			
+	@GetMapping({"/funcionario/funcionario"}) //é o nome que eu quiser colocar
+	public String listarfuncionario(ModelMap model) { 			
 	   
 	 //o findAll lista todos atores 
 	 model.addAttribute("funcionario",funcionarioRepository.findAll());
