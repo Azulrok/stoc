@@ -17,21 +17,34 @@ public class MovimentacaoController {
 		@Autowired
 		private MovimentacaoRepository movimentacaoRepository;
 		
-		@GetMapping({"/Movimentacao"}) //é o nome que eu quiser colocar
+		@GetMapping({"/cadastraritem"}) //é o nome que eu quiser colocar
 	    public String home(ModelMap model) { 			
 	    	   
 			
 		
-			 return "Movimentacao.html"; //é o nome do arquivo real	
+			 return "cadastraritem.html"; //é o nome do arquivo real	
 	    	    	
 	    }
 		
-		@GetMapping({"/Movimentacao/Movimentacao"}) //é o nome que eu quiser colocar
+		@GetMapping({"/alteraritem"}) //é o nome que eu quiser colocar
+	    public String alterar(ModelMap model) { 			
+	    	   
+			
+		
+			 return "alteraritem.html"; //é o nome do arquivo real	
+	    	    	
+	    }
+		
+		
+		
+		
+		
+		@GetMapping({"/cadastraritem/cadastraritem"}) //é o nome que eu quiser colocar
 	    public String listarfuncionario(ModelMap model) { 			
 	    	   
 			 //o findAll lista todos atores 
 			 model.addAttribute("pedido",movimentacaoRepository.findAll());
-			 return "Movimentacao/Movimentacao"; //é o nome do arquivo real	
+			 return "cadastraritem/cadastraritem"; //é o nome do arquivo real	
 	    	    	
 	    }
 	
