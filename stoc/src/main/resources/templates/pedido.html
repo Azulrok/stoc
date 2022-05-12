@@ -2,68 +2,161 @@
 <html>
 <head><meta charset="utf-8">
 	<title>pedido de item</title>
-	<style type="text/css">
-	form {
-		  
-    margin: 0 auto;
-    width: 400px;
-    padding: 5em;
-    border: 5px solid #CCC;
-    border-radius: 7em;
-	}	
+	<style>
+	
+body {
+  background-color: lightblue;
+}
+	
+	.p2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
 	
 	
+	h1{
+
+	color: cadetblue;
+}
+	
+	div{
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+	
+	
+	input[type=text],select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+		input[type=codigo],select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+		input[type=name],select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 100%;
+  background-color: Gray;
+  color: white;
+  padding: 10px 10px;
+  margin: 8px 0;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+	   .navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 4px 6px;
+      text-decoration: none;
+      font-size: 15px;
+  }
+   .navbar a:hover {
+      background: #ddd;
+      color: black;
+  }
+
+
+
+ .navbar {
+      overflow: hidden;
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      width: 100%;
+
+  }
+  
+
+div {
+  border-radius: 30px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 30%;
+}
 	
 	
 	</style>
-</head>
+
+
+<div id="mySidenav" class="navbar">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="home">Home</a>
+		<a href="consulta">Consultar Item</a>
+		<a href="cadastraritem">Cadastro de item</a>
+		<a href="pedido">Pedir item</a>
+		<a href="login">Logoff</a>
+	</div>
+<br><br>
+
+
 <body>
+
 <form>
+<center><h1><p class="p2">Pedido de Item</h1></center>
 
-
-  <div class="namerequisitador">
-    <div class="form-group col-md-6">
+  <div>
       <label for="RMname">Nome do Requisitador:</label>
       <input type="name" class="form-control" id="inputname" placeholder="Nome">
-    </div>
+  
     <br>
     
     
     
     
-    <div class="depart">
+<br>
       <label for="CodDP">Departamento:</label>
       <input type="codigo" class="form-control" id="inputDP" placeholder="Código do Departamento">
-    </div>
-  </div>
+  
   <br>
   
   
-  <div class="ReferA">
+ <br>
     <label for="inputRefA">Referência A:</label>
     <input type="text" class="form-control" id="inputrefa">
-  </div>
+  
   <br>
   
   
   
-  <div class="ReferB">
+  <br>
     <label for="inputForn">Fornecedor:</label>
     <input type="text" class="form-control" id="inputFn">
-  </div>
+  
   <br>
   
   
-  <div class="form-row">
-    <div class="form-group col-md-6">
+  <br>
       <label for="inputProp">N° Proposta:</label>
       <input type="text" class="form-control" id="inputProp">
-    </div>
+    
     <br>
     
     
-    <div class="form-group col-md-4">
-      <label for="inputOC">OC type</label>
+    <br>
+      <label for="inputOC">Tipo de Ordem de Compra</label>
       <select id="inputEstado" class="form-control">
         <option selected>Escolher...</option>
         <option>BRI001</option>
@@ -71,25 +164,20 @@
         <option>BRI003</option>
         <option>BRI004</option>
       </select>
-    </div>
+ 
     <br>
     
-    <div class="form-group col-md-2">
+
       <label for="inputCEP">Data de recebimento planejado</label>
       <input type="date" class="form-control" id="inputCEP">
-    </div>
-  </div>
+    
   <br>
   
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Clique em mim
-      </label>
+ 
+    <br>
+  <input button type="submit" value="Enviar">
+  
     </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Entrar</button>
 </form>
 
 
