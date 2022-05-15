@@ -35,6 +35,14 @@ public class MovimentacaoController {
 	    	    	
 	    }
 		
+		@GetMapping({"/cadastrarfornecedor"}) //é o nome que eu quiser colocar
+	    public String cadastrarfornecedor(ModelMap model) { 			
+	    	   
+			
+		
+			 return "cadastrarfornecedor.html"; //é o nome do arquivo real	
+	    	    	
+	    }
 		
 		
 		
