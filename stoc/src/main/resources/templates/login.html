@@ -214,9 +214,10 @@ footer {
 
 <div>
 
-<form action="">
-  <p class="p2">  <label for="usuario">Usuário:</label>
-    <input type="text" id="usuario" name="usuario" placeholder="Insira seu Usuário">
+<form th:action="@{/login}" method="post">
+
+  <p class="p2">  <label for="usuario">CPF:</label>
+    <input type="text" id="usuario" name="usuario" maxlength="11" placeholder="Insira seu Usuário">
 
 <label for="senha" >Senha:</label>
    <input type="password" id="Senha" name="senha"
@@ -232,7 +233,7 @@ footer {
 
 </div>
 
-
+</form>
 
 <footer><p class="p2">&copy; Todos os direitos reservados</p></footer>
 

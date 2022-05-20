@@ -73,7 +73,7 @@ div{
   margin-right: auto;
 
 }
-input[type=email], select {
+input[type=text], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -217,9 +217,10 @@ footer {
 
 
 
-<form action="">
-  <p class="p2">  <label for="email">Insira o E-mail cadastro para recuperar senha:</label>
-    <input type="email" id="email" name="usuario" placeholder="Insira seu E-mail">
+ <form class="form-horizontal" th:action="@{/cadastro/recuperar_senha}" method="POST"  th:object="${usuarioModel}">
+  <p class="p2">  <label for="
+  cpf">Insira o Cpf cadastro para recuperar senha:</label>
+    <input type="text" maxlength="11" id="cpf" name="cpf" placeholder="Insira seu CPF">
 
 
 
@@ -229,7 +230,7 @@ footer {
 
 
 </div>
-
+</form>
 
 <footer><p class="p2"><p>&copy; Todos os direitos reservados</p></p></footer>
 

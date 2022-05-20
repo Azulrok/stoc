@@ -22,7 +22,7 @@ public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long>{
 	List<UsuarioModel> findAllByPermissoesIn(List<PermissaoModel > permissoes, Sort nome);
 			
 	@Modifying
-	@Query(value ="update stoc.usuarios"
+	@Query(value ="update stoc.usuario"
 	       +" set senha = ?1"
 		   +" where cpf=?2 ", nativeQuery = true )
 	@Transactional

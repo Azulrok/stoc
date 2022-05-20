@@ -8,6 +8,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import br.com.stoc.model.ePermissão;
+
+
+
 
 
 
@@ -23,17 +27,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.
 		   authorizeRequests()
 		        .antMatchers("/webjars/**").permitAll()
-		        .antMatchers("/images/**").permitAll()
+		        .antMatchers("/img/**").permitAll()
 		        .antMatchers("/login").permitAll()
-		        .antMatchers("/funcionario").hasAnyRole("FUNCIONARIO")
+		        .antMatchers("/funcionario").hasAnyRole(ePermissão.FUNCIONARIO.toString())
 		        .antMatchers("/recuperar_senha").permitAll()
+		        .antMatchers("/cadastro/recuperar_senha").permitAll()
+		        .antMatchers("/cadastro").permitAll()
 		        .anyRequest()
 		        .authenticated()
 		        .and()
 		        .formLogin()
 		        .loginPage("/login")
-		        .usernameParameter("username")
-		        .passwordParameter("password")
+		        .usernameParameter("usuario")
+		        .passwordParameter("senha")
 		        .successForwardUrl("/postlogin")
 		        .permitAll()
 		        .and()

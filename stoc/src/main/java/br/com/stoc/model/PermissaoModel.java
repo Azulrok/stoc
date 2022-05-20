@@ -16,24 +16,25 @@ import org.springframework.security.core.GrantedAuthority;
 
 
 @Entity
-@Table(name = "permissao",schema = "sakila")
+@Table(name = "permissao",schema = "stoc")
 public class PermissaoModel implements Serializable,GrantedAuthority{
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name = "id_permissao")
-	private Long id;
+	private Long idPermissao;
 	
 	@Column(name = "nome")
 	private String nome;
 	
-	public Long getId() {
-		return id;
+
+	public Long getIdPermissao() {
+		return idPermissao;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdPermissao(Long idPermissao) {
+		this.idPermissao = idPermissao;
 	}
 
 	public String getNome() {
@@ -44,12 +45,14 @@ public class PermissaoModel implements Serializable,GrantedAuthority{
 		this.nome = nome;
 	}
 
-	public List<UsuarioModel> getUsuarios() {
-		return usuarios;
+
+
+	public List<UsuarioModel> getUsuario() {
+		return usuario;
 	}
 
-	public void setUsuarios(List<UsuarioModel> usuarios) {
-		this.usuarios = usuarios;
+	public void setUsuario(List<UsuarioModel> usuario) {
+		this.usuario = usuario;
 	}
 
 	public static long getSerialversionuid() {
@@ -57,7 +60,7 @@ public class PermissaoModel implements Serializable,GrantedAuthority{
 	}
 
 	@ManyToMany(mappedBy = "permissoes")
-	private List <UsuarioModel> usuarios;
+	private List <UsuarioModel> usuario;
 
 	@Override
 	public String getAuthority() {
