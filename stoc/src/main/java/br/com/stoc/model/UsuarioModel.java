@@ -35,6 +35,8 @@ public class UsuarioModel implements Serializable{
 	private String email;
 	@Column(name = "senha")
 	private String senha;
+	@Column(name = "nome")
+	private String nome;
 
 	
 	
@@ -45,6 +47,12 @@ public class UsuarioModel implements Serializable{
 	inverseJoinColumns= {@JoinColumn(name="permissoes_id_permissao", referencedColumnName = "id_permissao")})
 	private List<PermissaoModel> permissoes;
 	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	public long getId_usuario() {
 		return id_usuario;
 	}

@@ -3,13 +3,18 @@ package br.com.stoc.controller;
 import java.util.Arrays;
 import java.util.Random;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -36,16 +41,62 @@ public class CadastroController {
 	
 	
 	
+	@GetMapping(value = "/lista_funcionarios")
+	public ModelAndView ListarFuncionario(ModelMap model) {
+		// Lista todos os usuários
+		ModelAndView mv = new ModelAndView("/lista_funcionarios");
+
+		model.addAttribute("funcionarios", this.usuarioRepository.findAll());
+
+		return mv;
+
+	}
 	
 	
-	@GetMapping({"/cadastro"}) //é o nome que eu quiser colocar
-    public String home(ModelMap model) { 			
-    	   
-		
 	
-		 return "cadastro.html"; //é o nome do arquivo real	
-    	    	
-    }
+	@PostMapping(value = "/cadastro")
+	public ModelAndView cadastrarFuncionario(@Valid UsuarioModel usuario, BindingResult result,
+			@RequestParam("confirmar_email") String confirmarEmail, RedirectAttributes atributes) {
+		if (result.hasErrors()) {
+			return cadastrar(usuario);
+		}
+
+		ModelAndView mv = new ModelAndView("redirect:lista_funcionarios");
+		usuarioRepository.save(usuario);
+		atributes.addFlashAttribute("mensagem", "Usuário cadastrado com sucesso!");
+
+		return mv;
+
+	}
+	
+	
+	
+	
+
+
+
+
+	@GetMapping(value = "/cadastro")
+	public ModelAndView cadastrar(UsuarioModel usuario) {
+		ModelAndView mv = new ModelAndView("/cadastro");
+
+		return mv;
+
+	}
+	
+	
+	
+	@GetMapping("/deletar/{id}")
+	public String delete(UsuarioModel usuario, @PathVariable("id") long id, RedirectAttributes attr) {
+		usuario = (UsuarioModel) this.usuarioRepository.getOne(id);
+		this.usuarioRepository.delete(usuario); // Exclui o usuario
+		attr.addFlashAttribute("mensagem", "Usuário excluído com sucesso.");
+		attr.addFlashAttribute("tipo_mensagem", "alert alert-sucess");
+		return "redirect:../lista_funcionarios";
+	}
+	
+	
+	
 	
 	@PostMapping({ "/cadastro/recuperar_senha" })
 	public ModelAndView recuperarSenhaEmail(UsuarioModel usuario, Model model, RedirectAttributes atributes) {

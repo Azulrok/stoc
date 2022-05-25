@@ -31,10 +31,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		        .antMatchers("/login").permitAll()
 		        .antMatchers("/funcionario").hasAnyRole(ePermissão.FUNCIONARIO.toString())
 		        .antMatchers("/recuperar_senha").permitAll()
-		        .antMatchers("/cadastro/recuperar_senha").permitAll()
 		        .antMatchers("/cadastro").permitAll()
+		        .antMatchers("/cadastro/recuperar_senha").permitAll()
+		        
 		        .anyRequest()
-		        .authenticated()
+		        .authenticated()     
 		        .and()
 		        .formLogin()
 		        .loginPage("/login")

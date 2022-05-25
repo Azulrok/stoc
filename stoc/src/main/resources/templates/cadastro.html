@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Criação de conta</title>
+	<link rel="stylesheet" href="estilo.css">
+	<link rel="icon" href="img/stoc.png">
 </head>
 <body>
 
@@ -121,14 +123,14 @@ div {
 }
 
 footer {
-    position: absolute;
+    position: auto;
     bottom: 0;
     background-color: cadetblue;
     color: #FFF;
-    width: 99%;
-    height: 99;    
+    width: 100%;
+    height: 100;    
     text-align: center;
-    line-height: 3px;
+    line-height: 50px;
 }
 
 	.sidenav {
@@ -185,21 +187,33 @@ footer {
 	</script>
 
 <div>
-  <form action="/action_page.php">
-  <p class="p2">  <label for="pname">Crie um Usuário:</label>
-    <input type="text" id="fname" name="nomedeusuario" placeholder="Crie um Usuário">
-
+ <form name="cadastrar_usuario" class="form-horizontal" th:action="@{/cadastro}" method="POST" style="margin: 10px"  th:object="${usuarioModel}">
+ 
+ <d class="alert alert-success" th:text="${mensagem}" th:if="${not #strings.isEmpty(mensagem)}"></d>
+	<d class="alert alert-danger"  th:if="${#fields.hasAnyErrors()}">
+		<d th:each="detailedError : ${#fields.detailedErrors()}">
+			<span th:text="${detailedError.message}"></span>
+		</d>	
+	</d>
+ 
+ 
+  <p class="p2">  
+    <label for="basic-url" class="font-weight-bold">Nome de usuario</label>
+	<input class="form-control" type="text" maxlength="50" name="nome" th:field="*{nome}" placeholder="Nome completo" required onkeyup="return AlteraMaiusculas(this)"/>
+	
   
 
-     <label for="password" >Crie uma Senha:</label>
-   <input type="password" id="Senha" name="password"
-   placeholder="Crie uma Senha" ><br> 
+     <label for="basic-url" class="font-weight-bold">CPF:</label>
+	<input class="form-control" type="text" maxlength="11" name="cpf" th:field="*{cpf}" 
+	placeholder="Digite somente números" required onkeypress="return somenteNumeros(event)"/>
+	
 
 
-
-    <label for="email" >Insira seu E-mail:</label>
-   <input type="email" id="email" name="email"
-   placeholder="Insira seu E-mail" >
+  <label for="basic-url" class="font-weight-bold">E-mail</label>
+	<input class="form-control" type="email" name="email" th:field="*{email}" placeholder="Email" required />
+	
+	<label for="basic-url" class="font-weight-bold">Confirmar E-mail</label>
+	<input class="form-control" type="email" name="confirmar_email" placeholder="Confirmar email" required />
 
 
 
