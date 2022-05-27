@@ -23,6 +23,8 @@ import javax.persistence.Table;
 		private String CodDescricao;
 		@Column(name = "localizar_item")
 		private String LocalizarItem;
+		@Column(name = "nome_item")
+		private String Nome_Item;
 		public Integer getIdItem() {
 			return IdItem;
 		}
@@ -34,6 +36,12 @@ import javax.persistence.Table;
 		}
 		public void setQuantidade(Integer quantidade) {
 			Quantidade = quantidade;
+		}
+		public String getNome_Item() {
+			return Nome_Item;
+		}
+		public void setNome_Item(String nome_Item) {
+			Nome_Item = nome_Item;
 		}
 		public String getCod_Descricao() {
 			return CodDescricao;

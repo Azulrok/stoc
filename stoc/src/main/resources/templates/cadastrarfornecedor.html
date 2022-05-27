@@ -3,93 +3,23 @@
 <head>
 	<title>Cadastro fornecedor</title>
 	<link rel="stylesheet" href="estilo.css">
-	<link rel="icon" href="img/stoc.svg">
+	<link rel="icon" href="img/stoc.png">
 </head>
 <body>
-<d class = "imag">
+	<d class = "imag">
 
-	<img id="imag" src="stoc.svg">  
+	<img id="imag" src="img/stoc.svg">  
 	
 </d>
+<hr>
 
+<d th:insert="layout/menu">
 
-	  <d id="mySidenav" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="home">Home</a>
-		<a href="consulta">Consultar Item</a>
-		<a href="cadastraritem">Cadastro de item</a>
-		<a href="cadastrarfornecedor">Cadastrar fornecedor</a>
-		<a href="pedido">Pedir item</a>
-		<a href="login">Logoff</a>
 	</d>
 	
-<hr>
 	
 <style>
-		.imag  {
-    width: 20%;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
 	
-		hr {
-    display: block;
-    unicode-bidi: isolate;
-    margin-block-start: 4.0em;
-    margin-block-end: 0.em;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    border-style: inset;
-    border-width: 1px;
-}
-
-body {
-  background-color: lightblue;
-}
-
-
-		.sidenav {
-			height: 100%;
-			width: 0;
-			position: fixed;
-			z-index: 1;
-			top: 0;
-			left: 0;
-			background-color: #111;
-			overflow-x: hidden;
-			transition: 0.5s;
-			padding-top: 60px;
-		}
-
-		.sidenav a {
-			padding: 8px 8px 8px 32px;
-			text-decoration: none;
-			font-size: 25px;
-			color: #818181;
-			display: block;
-			transition: 0.3s;
-		}
-
-		.sidenav a:hover {
-			color: #f1f1f1;
-		}
-
-		.sidenav .closebtn {
-			position: absolute;
-			top: 0;
-			right: 25px;
-			font-size: 36px;
-			margin-left: 50px;
-		}
-
-		@media screen and (max-height: 450px) {
-			.sidenav {padding-top: 15px;}
-			.sidenav a {font-size: 18px;}
-		}
 
 .p2 {
   font-family: Arial, Helvetica, sans-serif;
@@ -220,19 +150,7 @@ footer {
 
 	
 	
-	
-	
-	<span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; Menu</span>
 
-	<script>
-		function openNav() {
-			document.getElementById("mySidenav").style.width = "250px";
-		}
-
-		function closeNav() {
-			document.getElementById("mySidenav").style.width = "0";
-		}
-	</script>
 	<center><h1><p class="p2">Cadastro de Fornecedor</h1></center>
 	
 	

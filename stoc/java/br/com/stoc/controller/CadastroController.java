@@ -46,7 +46,7 @@ public class CadastroController {
 		// Lista todos os usuários
 		ModelAndView mv = new ModelAndView("/lista_funcionarios");
 
-		model.addAttribute("funcionarios", this.usuarioRepository.findAll());
+		model.addAttribute("usuarios", this.usuarioRepository.findAll());
 
 		return mv;
 
@@ -68,11 +68,6 @@ public class CadastroController {
 		return mv;
 
 	}
-	
-	
-	
-	
-
 
 
 
@@ -83,6 +78,11 @@ public class CadastroController {
 		return mv;
 
 	}
+	
+	
+	
+
+	
 	
 	
 	

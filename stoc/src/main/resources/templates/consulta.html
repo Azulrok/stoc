@@ -1,220 +1,88 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.3.1/jquery.quicksearch.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Consultar Item</title>
-    <link rel="icon" href="img/stoc.png">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- Importa as configurações de cabecalho -->
+
+<head th:insert="layout/cabecalho">
+<link rel="stylesheet" href="estilo.css">
+	<link rel="icon" href="img/stoc.png">
+	<title>Lista de Funcionarios</title>
+	<!-- Importa o cabecalho -->
 </head>
-<style type="text/css">
-   body {
-  background-color: lightblue;
-}
-    
-    
-    
-    .sidenav {
-			height: 100%;
-			width: 0;
-			position: fixed;
-			z-index: 1;
-			top: 0;
-			left: 0;
-			background-color: #111;
-			overflow-x: hidden;
-			transition: 0.5s;
-			padding-top: 60px;
-		}
 
-		.sidenav a {
-			padding: 8px 8px 8px 32px;
-			text-decoration: none;
-			font-size: 25px;
-			color: #818181;
-			display: block;
-			transition: 0.3s;
-		}
 
-		.sidenav a:hover {
-			color: #f1f1f1;
-		}
 
-		.sidenav .closebtn {
-			position: absolute;
-			top: 0;
-			right: 25px;
-			font-size: 36px;
-			margin-left: 50px;
-		}
-
-		@media screen and (max-height: 450px) {
-			.sidenav {padding-top: 15px;}
-			.sidenav a {font-size: 18px;}
-		}
-    
-    
-    .navbar {
-      overflow: hidden;
-      background-color: #333;
-      position: fixed;
-      top: 0;
-      width: 100%;
-  }
-
-  .navbar a {
-      float: left;
-      display: block;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 4px 6px;
-      text-decoration: none;
-      font-size: 17px;
-  }
-
-  .navbar a:hover {
-      background: #ddd;
-      color: black;
-  }
-
-  .main {
-      padding: 16px;
-      margin-top: 30px;
-      height: 1500px; /* Used in this example to enable scrolling */    
-  }
- h1{
-
-	color: cadetblue;
-}
-
-	.imag  {
-    width: 20%;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-		hr {
-    display: block;
-    unicode-bidi: isolate;
-    margin-block-start: 4.0em;
-    margin-block-end: 0.1em;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-    overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    border-style: inset;
-    border-width: 1px;
-}
-		
-		body {
-			font-family: "Lato", sans-serif;
-		}
-
-</style>
-<body>
-  <d class = "imag">
+	<d class = "imag">
 
 	<img id="imag" src="img/stoc.svg">  
 	
 </d>
-  
-  <d id="mySidenav" class="sidenav">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="home">Home</a>
-		<a href="consulta">Consultar Item</a>
-		<a href="cadastraritem">Cadastro de item</a>
-		<a href="cadastrarfornecedor">Cadastrar fornecedor</a>
-		<a href="pedido">Pedir item</a>
-		<a href="lista_funcionarios">Funcionarios</a>
-		<a href="login">Logoff</a>
+<hr>
+
+	<d th:insert="layout/menu">
+
 	</d>
+	
+
+	<div class="container">
+		<!-- Importa o menu padrão do sistema -->
+	
+		<br>
+		<h1>
+		
+			<center><p2 class="p2">Lista de Itens</p2></center>
+		</h1>
+		
+		<b>
+
+		<a href="/cadastraritem" class="btn btn-info" role="button">Novo Item</a></center>
+
+		</b>
+		
+
+		<!-- Retorna uma mensagem na tela para o usuário após a operação -->
+
+		<!-- Recebe a mensagem de retorno da operação e a configuração do tipo da mensagem do controller -->
+		<div th:classappend="${mensagem == null ? '' : ''}">
+			<div th:classappend="${tipo_mensagem}">
+				<td th:text="${mensagem}"></td>
+			</div>
+		</div>
 
 
-  
+		<table class="table table-sm table-striped table-hover table-bordered">
+			<thead>
+				<tr>
+					<th class="col-1">Nome fornecedor</th>
+					<th class="col-2">empresa</th>
+					<th class="col-1"></th>
+					<th class="col-1">Ação</th>
 
-  <hr>
-   <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; Menu</span>
-  <!--caixa de texto para consulta--> 
-  
-  <center><h1><p class="p2">Consultar Itens</h1></center>
-  <script>
-		function openNav() {
-			document.getElementById("mySidenav").style.width = "250px";
-		}
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuario:${usuarios}">
+				
+					<td th:text="${usuario.nome}"></td>
 
-		function closeNav() {
-			document.getElementById("mySidenav").style.width = "0";
-		}
-	</script>
-  <div class="form-group input-group">
-    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-    <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
-</div>
-<table id="tabela" class="table table-hover">
-    <thead>
-        <tr>
-            <th>Itens:</th>
-            <th>Id:</th>
-            <th>Local de Prateleira:</th>
-            <th>Data de Entrada:</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>lapis</th>
-            <td>001</td>
-            <td>Prateleira 1</td>
-            <td>01/05/2022</td>
-        </tr>
+					<td th:text="${usuario.cpf}"></td>
 
-        <tr>
-            <th>pranchetas</th>
-            <td>002</td>
-            <td>Prateleira 2</td>
-            <td>01/05/2022</td>
-        </tr>
+					<td th:text="${usuario.email}"></td>
 
-        <tr>
-            <th>tesoura</th>
-            <td>003</td>
-            <td>Prateleira 3</td>
-            <td>01/05/2022</td>
-        </tr>
+						<td>
+						<a class="delete btn btn-sm btn-danger" th:href="@{deletar/{id}(id=${usuario.id_usuario})}"
+							onclick="if (confirm('Deseja realmente excluir o usuário?')){return true;}else{event.stopPropagation(); event.preventDefault();};">Excluir</a>
+					</td>
 
-        <tr>
-            <th>estilete</th>
-            <td>004</td>
-            <td>Prateleira 4</td>
-            <td>01/05/1699</td>
-        </tr>
-
-        <tr>
-            <th>grampeador</th>
-            <td>005</td>
-            <td>Prateleira 5</td>
-            <td>01/05/65</td>
-        </tr>  
-
-        <tr>
-            <th>fichario</th>
-            <td>006</td>
-            <td>Prateleira 6</td>
-            <td>01/05/2077</td>
-        </tr>                               
-    </tbody>
-</table>
-
-<script>
-
-    $('input#txt_consulta').quicksearch('table#tabela tbody tr');
-</script>
-
-
+				</tr>
+			</tbody>
+		</table>
 
 	
-<!--caixa de consulta termina aqui(css e jquery boostrap)-->
+		
+
+	</div>
+
+
 </body>
+
 </html>
