@@ -52,10 +52,10 @@
 		<table class="table table-sm table-striped table-hover table-bordered">
 			<thead>
 				<tr>
-					<th class="col-1">Nome fornecedor</th>
+					<th class="col-1">Nome do item</th>
 					<th class="col-2">empresa</th>
-					<th class="col-1"></th>
-					<th class="col-1">Ação</th>
+					<th class="col-1">Data de Recebimento</th>
+					<th class="col-1">Pratileira</th>
 
 				</tr>
 			</thead>
@@ -70,7 +70,7 @@
 
 						<td>
 						<a class="delete btn btn-sm btn-danger" th:href="@{deletar/{id}(id=${usuario.id_usuario})}"
-							onclick="if (confirm('Deseja realmente excluir o usuário?')){return true;}else{event.stopPropagation(); event.preventDefault();};">Excluir</a>
+							onclick="if (confirm('Deseja realmente excluir o item?')){return true;}else{event.stopPropagation(); event.preventDefault();};">Excluir</a>
 					</td>
 
 				</tr>

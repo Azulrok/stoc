@@ -29,12 +29,12 @@
 		<br>
 		<h1>
 		
-			<center><p2 class="p2">Lista de Funcionários Cadastrados</p2></center>
+			<center><p2 class="p2">Lista de Fornecedores Cadastrados</p2></center>
 		</h1>
 		
 		<b>
 
-		<a href="/cadastro" class="btn btn-info" role="button">Novo Usuário</a></center>
+		<a href="/cadastrarfornecedor" class="btn btn-info" role="button">Novo Usuário</a>
 
 		</b>
 		
@@ -53,9 +53,9 @@
 			<thead>
 				<tr>
 					<th class="col-1">Nome</th>
-					<th class="col-2">Cpf</th>
+					<th class="col-2">Empresa</th>
 					<th class="col-1">Email</th>
-					<th class="col-1">Ação</th>
+					<th class="col-1">Número</th>
 
 				</tr>
 			</thead>
@@ -70,7 +70,7 @@
 
 						<td>
 						<a class="delete btn btn-sm btn-danger" th:href="@{deletar/{id}(id=${usuario.id_usuario})}"
-							onclick="if (confirm('Deseja realmente excluir o usuário?')){return true;}else{event.stopPropagation(); event.preventDefault();};">Excluir</a>
+							onclick="if (confirm('Deseja realmente excluir o fornecedor?')){return true;}else{event.stopPropagation(); event.preventDefault();};">Excluir</a>
 					</td>
 
 				</tr>
