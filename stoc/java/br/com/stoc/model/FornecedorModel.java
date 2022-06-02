@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,20 +17,21 @@ public class FornecedorModel implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_fornecedor")
-	private Integer IdFornecedor;
+	private Long IdFornecedor;
 	@Column(name = "numero")
 	private Integer Numero;
-	@Column(name = "nome_fornecedor")
-	private String NomeFornecedor;
-	@Column(name = "empresa_fornecedor")
-	private String EmpresaFornecedor;
-	@Column(name = "email_fornecedor")
-	private String EmailFornecedor;
-	public Integer getIdFornecedor() {
+	@Column(name = "nome")
+	private String Nome;
+	@Column(name = "empresa")
+	private String Empresa;
+	@Column(name = "email")
+	private String Email;
+	public Long getIdFornecedor() {
 		return IdFornecedor;
 	}
-	public void setIdFornecedor(Integer idFornecedor) {
+	public void setIdFornecedor(Long idFornecedor) {
 		IdFornecedor = idFornecedor;
 	}
 	public Integer getNumero() {
@@ -37,25 +40,24 @@ public class FornecedorModel implements Serializable{
 	public void setNumero(Integer numero) {
 		Numero = numero;
 	}
-	public String getNomeFornecedor() {
-		return NomeFornecedor;
+	public String getNome() {
+		return Nome;
 	}
-	public void setNomeFornecedor(String nomeFornecedor) {
-		NomeFornecedor = nomeFornecedor;
+	public void setNome(String nome) {
+		Nome = nome;
 	}
-	public String getEmpresaFornecedor() {
-		return EmpresaFornecedor;
+	public String getEmpresa() {
+		return Empresa;
 	}
-	public void setEmpresaFornecedor(String empresaFornecedor) {
-		EmpresaFornecedor = empresaFornecedor;
+	public void setEmpresa(String empresa) {
+		Empresa = empresa;
 	}
-	public String getEmailFornecedor() {
-		return EmailFornecedor;
+	public String getEmail() {
+		return Email;
 	}
-	public void setEmailFornecedor(String emailFornecedor) {
-		EmailFornecedor = emailFornecedor;
+	public void setEmail(String email) {
+		Email = email;
 	}
-	
 	
 	
 	

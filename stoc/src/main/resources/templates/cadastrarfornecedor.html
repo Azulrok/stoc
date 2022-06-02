@@ -154,25 +154,26 @@ footer {
 	<center><h1><p class="p2">Cadastro de Fornecedor</h1></center>
 	
 	
-	
+
 
 <div>
-  <form action="/action_page.php">
-  <p class="p2">  <label for="name">Nome da Fornecedor:</label>
-    <input type="text" id="name" name="nome da empresa" placeholder="Insira nome da empresa">
-
+ <form name="cadastrarfornecedor" class="form-horizontal" th:action="@{/cadastrarfornecedor}" method="POST" style="margin: 10px"  th:object="${fornecedorModel}">  
+ 
+ <label for="basic-url" class="font-weight-bold">Nome do fornecedor</label>
+	<input class="form-control" type="text" maxlength="50" name="nome" th:field="*{nome}" placeholder="Nome do fornecedor" required onkeyup="return AlteraMaiusculas(this)"/>
+	
   
-	<p class="p2">  <label for="name">Nome do Representante:</label>
-    <input type="text" id="name" name="nomedeusuario" placeholder="Nome do Representante:">
+	<p class="p2">  <label for="name">Nome da Empresa:</label>
+    <input type="text" id="name" name="empresa" th:field="*{empresa}" placeholder="Nome da empresa:">
     
     <br>
     <p class="p2">  <label for="tel">Número do Representante:</label>
-    <input type="tel" id="tel" name="numero do Representante" placeholder="Número do Representante:">
+    <input type="tel" id="numero" name="numero" th:field= "*{numero}" placeholder="Número do Representante:">
    
 
 <br>
     <label for="email" >Insira E-mail do Fornecedor:</label>
-   <input type="email" id="email" name="email"
+   <input type="email" id="email" name="email"  th:field="*{email}"
    placeholder="E-mail do Fornecedor" >
 
 

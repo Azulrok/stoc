@@ -27,7 +27,7 @@ public class UsuarioModel implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
-	private long id_usuario;
+	private Long id_usuario;
 	
 	@Column(name = "cpf")
 	private String cpf;
@@ -53,10 +53,10 @@ public class UsuarioModel implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public long getId_usuario() {
+	public Long getId_usuario() {
 		return id_usuario;
 	}
-	public void setId_usuario(long id_usuario) {
+	public void setId_usuario(Long id_usuario) {
 		this.id_usuario = id_usuario;
 	}
 	public String getCpf() {

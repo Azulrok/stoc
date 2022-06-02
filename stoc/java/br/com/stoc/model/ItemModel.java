@@ -16,7 +16,7 @@ import javax.persistence.Table;
 		private static final long serialVersionUID = 1L;
 		@Id
 		@Column(name = "id_item")
-		private Integer IdItem;
+		private Long IdItem;
 		@Column(name = "quantidade")
 		private Integer Quantidade;
 		@Column(name = "cod_descricao")
@@ -25,10 +25,10 @@ import javax.persistence.Table;
 		private String LocalizarItem;
 		@Column(name = "nome_item")
 		private String Nome_Item;
-		public Integer getIdItem() {
+		public Long getIdItem() {
 			return IdItem;
 		}
-		public void setIdItem(Integer idItem) {
+		public void setIdItem(Long idItem) {
 			IdItem = idItem;
 		}
 		public Integer getQuantidade() {

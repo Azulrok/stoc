@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `documento`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `documento` (
   `id_documento` int NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(45) NOT NULL,
+  `descricao` varchar(455) NOT NULL,
   PRIMARY KEY (`id_documento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -39,6 +39,33 @@ LOCK TABLES `documento` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `fornecedor`
+--
+
+DROP TABLE IF EXISTS `fornecedor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `fornecedor` (
+  `id_fornecedor` int NOT NULL AUTO_INCREMENT,
+  `numero` int NOT NULL,
+  `nome` varchar(455) NOT NULL,
+  `email` varchar(455) NOT NULL,
+  `empresa` varchar(455) NOT NULL,
+  PRIMARY KEY (`id_fornecedor`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fornecedor`
+--
+
+LOCK TABLES `fornecedor` WRITE;
+/*!40000 ALTER TABLE `fornecedor` DISABLE KEYS */;
+INSERT INTO `fornecedor` VALUES (1,4002,'ed','edval@asd.com','321'),(2,654,'edf','ed@com','123'),(3,40028922,'ed','edvaldo1239@gmail.com','321');
+/*!40000 ALTER TABLE `fornecedor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `funcionario`
 --
 
@@ -47,10 +74,11 @@ DROP TABLE IF EXISTS `funcionario`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `funcionario` (
   `id_funcionario` int NOT NULL AUTO_INCREMENT,
-  `cpf_funcionario` int DEFAULT NULL,
+  `cpf_funcionario` int NOT NULL,
   `tipo_funcionario` varchar(45) NOT NULL,
   `nome_funcionario` varchar(45) NOT NULL,
   `email_funcionario` varchar(45) NOT NULL,
+  `senha_funcionario` varchar(455) NOT NULL,
   PRIMARY KEY (`id_funcionario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -74,10 +102,11 @@ DROP TABLE IF EXISTS `item`;
 CREATE TABLE `item` (
   `id_item` int NOT NULL AUTO_INCREMENT,
   `quantidade` int NOT NULL,
-  `cod_descricao` varchar(45) NOT NULL,
-  `localizar_item` varchar(45) NOT NULL,
+  `cod_descricao` varchar(455) NOT NULL,
+  `localizar_item` varchar(455) NOT NULL,
+  `nome_item` varchar(455) NOT NULL,
   PRIMARY KEY (`id_item`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,6 +115,7 @@ CREATE TABLE `item` (
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
+INSERT INTO `item` VALUES (1,12,'312','estante 3','sdas');
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,8 +128,8 @@ DROP TABLE IF EXISTS `movimentacao`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `movimentacao` (
   `id_movimentacao` int NOT NULL AUTO_INCREMENT,
-  `cod_movimentacao` int DEFAULT NULL,
-  `cod_data` int DEFAULT NULL,
+  `cod_movimentacao` int NOT NULL,
+  `cod_data` int NOT NULL,
   PRIMARY KEY (`id_movimentacao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -141,6 +171,84 @@ LOCK TABLES `pedido` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `permissao`
+--
+
+DROP TABLE IF EXISTS `permissao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `permissao` (
+  `id_permissao` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(455) NOT NULL,
+  PRIMARY KEY (`id_permissao`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permissao`
+--
+
+LOCK TABLES `permissao` WRITE;
+/*!40000 ALTER TABLE `permissao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permissao` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuario` (
+  `id_usuario` int NOT NULL AUTO_INCREMENT,
+  `cpf` varchar(11) NOT NULL,
+  `email` varchar(455) NOT NULL,
+  `senha` varchar(455) DEFAULT NULL,
+  `nome` varchar(455) NOT NULL,
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'11111111111','edvaldo1239@gmail.com','$2a$10$qjUccFl01AIo2ZCWbyEscO2Ve4p8X7P6NZQ8Nh8Cy3Bkjxr188Vnm','Edvaldo');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuarios_permissoes`
+--
+
+DROP TABLE IF EXISTS `usuarios_permissoes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuarios_permissoes` (
+  `id_usuario_permissao` int NOT NULL,
+  `usuarios_id_usuario` int NOT NULL,
+  `permissoes_id_permissao` int NOT NULL,
+  PRIMARY KEY (`id_usuario_permissao`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios_permissoes`
+--
+
+LOCK TABLES `usuarios_permissoes` WRITE;
+/*!40000 ALTER TABLE `usuarios_permissoes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuarios_permissoes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'stoc'
+--
+
+--
 -- Dumping routines for database 'stoc'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -153,4 +261,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-05 19:41:31
+-- Dump completed on 2022-06-02 19:50:38

@@ -19,15 +19,15 @@ import javax.persistence.Table;
 		private static final long serialVersionUID = 1L;
 		@Id
 		@Column(name = "id_movimentacao")
-		private Integer IdMovimentacao;
+		private Long IdMovimentacao;
 		@Column(name = "coditem")
 		private Integer CodItem;
 		@Column(name = "coddata")
 		private Integer CodData;
-		public Integer getIdMovimentacao() {
+		public Long getIdMovimentacao() {
 			return IdMovimentacao;
 		}
-		public void setIdMovimentacao(Integer idMovimentacao) {
+		public void setIdMovimentacao(Long idMovimentacao) {
 			IdMovimentacao = idMovimentacao;
 		}
 		public Integer getCod_Item() {

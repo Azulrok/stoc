@@ -19,7 +19,7 @@ import javax.persistence.Table;
 		private static final long serialVersionUID = 1L;
 		@Id
 		@Column(name = "id_funcionario")
-		private Integer IdFuncionario;
+		private Long IdFuncionario;
 		@Column(name = "cpf_funcionario")
 		private Integer CpfFuncionario;
 		@Column(name = "nome_funcionario")
@@ -33,13 +33,13 @@ import javax.persistence.Table;
 		
 		
 		
-		public Integer getIdFuncionario() 
+		public Long getIdFuncionario() 
 		
 		
 		{
 			return IdFuncionario;
 		}
-		public void setIdFuncionario(Integer idFuncionario) {
+		public void setIdFuncionario(Long idFuncionario) {
 			IdFuncionario = idFuncionario;
 		}
 		public Integer getCpf_Funcionario() {

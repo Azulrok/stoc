@@ -17,7 +17,7 @@ import javax.persistence.Table;
 		private static final long serialVersionUID = 1L;
 		@Id
 		@Column(name = "id_pedido")
-		private Integer IdPedido;
+		private Long IdPedido;
 		@Column(name = "cod_funcionario")
 		private Integer CodFuncionario;
 		@Column(name = "cod_clienteo")
@@ -28,10 +28,10 @@ import javax.persistence.Table;
 		private Integer CodItem;
 		@Column(name = "cod_subcategoria")
 		private Integer CodSubcategoria;
-		public Integer getIdPedido() {
+		public Long getIdPedido() {
 			return IdPedido;
 		}
-		public void setIdPedido(Integer idPedido) {
+		public void setIdPedido(Long idPedido) {
 			IdPedido = idPedido;
 		}
 		public Integer getCodFuncionario() {

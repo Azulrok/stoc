@@ -15,15 +15,15 @@ import javax.persistence.Table;
 		private static final long serialVersionUID = 1L;
 		@Id
 		@Column(name = "id_documento")
-		private Integer IdDocumento;
+		private Long IdDocumento;
 		@Column(name = "descricao")
 		private String descricao;
 		
 		
-		public Integer getIdDocumento() {
+		public Long getIdDocumento() {
 			return IdDocumento;
 		}
-		public void setIdDocumento(Integer idDocumento) {
+		public void setIdDocumento(Long idDocumento) {
 			IdDocumento = idDocumento;
 		}
 		public String getDescricao() {
