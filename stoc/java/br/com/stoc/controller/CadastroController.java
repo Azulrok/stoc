@@ -81,9 +81,13 @@ public class CadastroController {
 	
 	
 	
-
-	
-	
+	@GetMapping(value = "/alterar_usuario/{id}")
+	public ModelAndView alterarUsuario(UsuarioModel usuarioModel,ModelMap model, @PathVariable("id") Long idUsuario) {
+	UsuarioModel usuario = new UsuarioModel();
+	usuario = usuarioRepository.getOne(idUsuario);
+	model.addAttribute("usuarioModel",usuarioRepository.findById(idUsuario));
+	return new ModelAndView("cadastro",model);
+	}
 	
 	
 	@GetMapping("/deletar/{id}")

@@ -138,13 +138,13 @@ footer {
 <form name="cadastraritem" class="form-horizontal" th:action="@{/cadastraritem}" method="POST" style="margin: 10px"  th:object="${itemModel}">
 <div>
   
-  <p class="p2">  <label for="name">nome do item:</label>
+  <p class="p2">  <label for="name">Nome do item:</label>
     <input type="text" id="name" name="nome" th:field="*{nome}" placeholder="Nome do Item">
 	
 	
 	
 <br>
-  <p class="p2">  <label for="quantidade">nome do item:</label>
+  <p class="p2">  <label for="quantidade">Quantidade de item:</label>
     <input type="text" id="quantidade" name="quantidade" th:field="*{quantidade}" placeholder="Quantidade de Item">
   
   <br><br>Descrição do Item
