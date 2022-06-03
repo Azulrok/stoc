@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,16 +17,17 @@ import javax.persistence.Table;
 
 		private static final long serialVersionUID = 1L;
 		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		@Column(name = "id_item")
 		private Long IdItem;
 		@Column(name = "quantidade")
 		private Integer Quantidade;
-		@Column(name = "cod_descricao")
-		private String CodDescricao;
-		@Column(name = "localizar_item")
-		private String LocalizarItem;
-		@Column(name = "nome_item")
-		private String Nome_Item;
+		@Column(name = "descricao")
+		private String Descricao;
+		@Column(name = "localizar")
+		private String Localizar;
+		@Column(name = "nome")
+		private String Nome;
 		public Long getIdItem() {
 			return IdItem;
 		}
@@ -37,25 +40,27 @@ import javax.persistence.Table;
 		public void setQuantidade(Integer quantidade) {
 			Quantidade = quantidade;
 		}
-		public String getNome_Item() {
-			return Nome_Item;
+		public String getDescricao() {
+			return Descricao;
 		}
-		public void setNome_Item(String nome_Item) {
-			Nome_Item = nome_Item;
+		public void setDescricao(String descricao) {
+			Descricao = descricao;
 		}
-		public String getCod_Descricao() {
-			return CodDescricao;
+		public String getLocalizar() {
+			return Localizar;
 		}
-		public void setCod_Descricao(String cod_Descricao) {
-			CodDescricao = cod_Descricao;
+		public void setLocalizar(String localizar) {
+			Localizar = localizar;
 		}
-		public String getLocalizar_Item() {
-			return LocalizarItem;
+		public String getNome() {
+			return Nome;
 		}
-		public void setLocalizar_Item(String localizar_Item) {
-			LocalizarItem = localizar_Item;
+		public void setNome(String nome) {
+			Nome = nome;
 		}
-	
-	
-	
+		
+		
+		
+		
+		
 }

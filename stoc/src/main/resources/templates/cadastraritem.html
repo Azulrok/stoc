@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head><meta charset="utf-8">
 	<title>Cadastrar item</title>
 	<link rel="icon" href="img/stoc.png">
@@ -135,38 +135,31 @@ footer {
 <center><h1><p class="p2">Cadastrar item</h1></center>
 
 
-
+<form name="cadastraritem" class="form-horizontal" th:action="@{/cadastraritem}" method="POST" style="margin: 10px"  th:object="${itemModel}">
 <div>
   
-  <p class="p2">  <label for="pname">nome do item:</label>
-    <input type="text" id="fname" name="nomedoitem" placeholder="Nome do Item">
+  <p class="p2">  <label for="name">nome do item:</label>
+    <input type="text" id="name" name="nome" th:field="*{nome}" placeholder="Nome do Item">
 	
 	
 	
 <br>
-   <label for="date" >Data de chegada:</label>
-    <input id="date" type="date"><br>
+  <p class="p2">  <label for="quantidade">nome do item:</label>
+    <input type="text" id="quantidade" name="quantidade" th:field="*{quantidade}" placeholder="Quantidade de Item">
   
   <br><br>Descrição do Item
-  <textarea id="descricao" name="descricao" rows="4" cols="50">
+  <textarea type="text" id="descricao" name="descricao" rows="4" cols="50"th:field= "*{descricao}" placeholder="descricao:">
 </textarea><br>
 
 
 
 <br>
-    <label for="local" >Insira local de armanezamento:</label>
-   <input type="local" id="local" name="local"
+    <label for="localizar" >Insira local de armanezamento:</label>
+   <input type="text" id="localizar" name="localizar" th:field= "*{localizar}"
    placeholder="local de armanezamento" >
 
 
-
-
-   
- 
-   
-  
-
-
+<!--
   <br><label for="perecivel" >Produto perecivel:</label>
 
   <input type="radio" id="sim" name="drone" value="sim">
@@ -180,10 +173,10 @@ footer {
 
 
 <br>
-   <label for="date" >Data de Validade:</label>
-    <input id="date" type="date"><br>
+   <label for="date" >Data de Validade:</label> 
+    <input id="date" type="date"><br> 
 
-
+-->
 
 
   <br> <input button type="submit" value="Enviar">
