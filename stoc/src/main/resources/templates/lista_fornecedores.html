@@ -52,7 +52,6 @@
 		<table class="table table-sm table-striped table-hover table-bordered">
 			<thead>
 				<tr>
-					<th class="col-2">Id Fornecedor</th>
 					<th class="col-2">Nome</th>
 					<th class="col-2">Empresa</th>
 					<th class="col-2">Email</th>
@@ -63,8 +62,6 @@
 			</thead>
 			<tbody>
 				<tr th:each="fornecedor:${lista_fornecedores}">
-				
-					<td th:text="${fornecedor.id_fornecedor}"></td>
 				
 					<td th:text="${fornecedor.nome}"></td>
 

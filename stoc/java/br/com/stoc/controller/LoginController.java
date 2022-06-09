@@ -43,7 +43,7 @@ public class LoginController {
 	
 	@RequestMapping(value = {"/postlogin"}, method = {RequestMethod.POST})
 	public String postLogin(Model model, HttpSession session) {
-	 System.out.println("entrei");	
+	
 		org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String cpf = auth.getName(); 
 		

@@ -41,6 +41,16 @@ public class CadastroController {
 	
 	
 	
+	@GetMapping(value = "/lista_funcionarios")
+	public ModelAndView ListarFuncionario(ModelMap model) {
+		// Lista todos os usuários
+		ModelAndView mv = new ModelAndView("/lista_funcionarios");
+
+		model.addAttribute("usuarios", this.usuarioRepository.findAll());
+
+		return mv;
+
+	}
 	
 	
 	
@@ -58,11 +68,6 @@ public class CadastroController {
 		return mv;
 
 	}
-	
-	
-	
-	
-
 
 
 
@@ -74,6 +79,15 @@ public class CadastroController {
 
 	}
 	
+	
+	
+	@GetMapping(value = "/alterar_usuario/{id}")
+	public ModelAndView alterarUsuario(UsuarioModel usuarioModel,ModelMap model, @PathVariable("id") Long idUsuario) {
+	UsuarioModel usuario = new UsuarioModel();
+	usuario = usuarioRepository.getOne(idUsuario);
+	model.addAttribute("usuarioModel",usuarioRepository.findById(idUsuario));
+	return new ModelAndView("cadastro",model);
+	}
 	
 	
 	@GetMapping("/deletar/{id}")
