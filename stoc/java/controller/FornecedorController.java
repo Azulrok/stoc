@@ -1,5 +1,5 @@
 
-package br.com.stoc.controller;
+package controller;
 
 import javax.validation.Valid;
 

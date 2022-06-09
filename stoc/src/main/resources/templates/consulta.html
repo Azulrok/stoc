@@ -52,16 +52,20 @@
 		<table class="table table-sm table-striped table-hover table-bordered">
 			<thead>
 				<tr>
+					<th class="col-1">Cod Item</th>
 					<th class="col-2">Nome do item</th>
 					<th class="col-2">Quantidade</th>
-					<th class="col-2">Descricao</th>
-					<th class="col-1">Localizar</th>
-					<th class="col-1">Excluir</th>
+					<th class="col-2">Descrição</th>
+					<th class="col-2">Localização</th>
+					<th class="col-1">Excluir/Alterar</th>
+					
 
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="item:${consulta}">
+					
+					<td th:text="${item.IdItem}"></td>
 				
 					<td th:text="${item.nome}"></td>
 					
