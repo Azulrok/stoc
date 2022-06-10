@@ -29,7 +29,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
 			
 			if (usuario == null) {
 				throw new UsernameNotFoundException(" Usuário não encontrado.");
+		
 			}
+			
 			return new User(usuario.getCpf(),usuario.getPassword(),true,true,true,true,usuario.getAuthorities());
 		}
 		

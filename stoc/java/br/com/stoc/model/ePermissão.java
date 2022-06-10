@@ -1,8 +1,8 @@
 package br.com.stoc.model;
 
 public enum ePermissão {
-    FUNCIONARIO("ROLE_FUNCIONARIO"),
-    ADMIN("ROLE_ADMIN");
+	ALMOXARIFE("ROLE_ALMOXARIFE"),
+	ADMINISTRADOR("ROLE_ADMINISTRADOR");
 	
 	public final String valor;
 	ePermissão(String valorOpcao){
